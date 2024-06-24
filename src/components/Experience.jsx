@@ -8,7 +8,8 @@ import { textVariant } from "../utils/motion";
 
 const ExperienceCard = ({ experience, onClick, isActive, isMobile }) => {
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.05 }} // subtle hover animation
       onClick={onClick}
       className={`cursor-pointer sm:mb-5 p-5 max-w-xl relative sm:text-left text-center ${
         isMobile ? "text-quaternary" : ""
@@ -31,13 +32,18 @@ const ExperienceCard = ({ experience, onClick, isActive, isMobile }) => {
       >
         {experience.company_name} | {experience.date}
       </p>
-    </div>
+    </motion.div>
   );
 };
 
 const ExperienceDetails = ({ experience }) => {
   return (
-    <div className="mt-5">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // initial animation state
+      animate={{ opacity: 1, y: 0 }} // animate state
+      transition={{ duration: 0.5 }} // transition duration
+      className="mt-5"
+    >
       <ul className="max-w-7xl list-none space-y-8 border-4 lg:border-8 rounded-xl lg:rounded-3xl p-6">
         {experience.details.map((detail, index) => (
           <li
@@ -47,7 +53,7 @@ const ExperienceDetails = ({ experience }) => {
           />
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 
@@ -60,7 +66,7 @@ const Experience = () => {
       setIsMobile(window.innerWidth < 640);
     };
 
-    handleResize(); // Check initial screen size
+    handleResize(); // initial screen size
     window.addEventListener("resize", handleResize);
 
     return () => {
