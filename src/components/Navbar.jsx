@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { close, menu } from "../assets";
 import { navLinks } from "../data";
+import { FaFacebook, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast"; // Importing toast and Toaster from react-hot-toast
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
@@ -30,7 +32,7 @@ const Navbar = () => {
       },
       {
         threshold: 0.2,
-        rootMargin: '0px 0px -50% 0px'
+        rootMargin: "0px 0px -50% 0px",
       }
     );
 
@@ -47,18 +49,54 @@ const Navbar = () => {
     setActive("hero");
   };
 
+  const copyEmailToClipboard = () => {
+    navigator.clipboard.writeText("tanjim.riju1243@gmail.com");
+    toast.success("Email Copied!", {
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
+  };
+
   return (
     <nav className="w-full flex items-center bg-gradient-to-b from-black sm:bg-none p-8 sm:px-16 sm:py-10 fixed z-40 pointer-events-none">
       <div className="w-full flex justify-between items-start mx-auto">
-        <Link
-          to="/"
-          className="flex items-start"
-          onClick={scrollToTop}
-        >
-          <p className="text-white text-[26px] lg:text-[36px] font-bold pointer-events-auto cursor-pointer flex">
-            {/* TIR */}
-          </p>
-        </Link>
+
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://www.facebook.com/tanjim.islam1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <FaFacebook className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tanjim-riju-7b0683234/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
+          </a>
+          <a
+            href="https://github.com/Tanjim-Islam"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
+          </a>
+
+          <div
+            onClick={copyEmailToClipboard}
+            aria-label="Email"
+          >
+            <FaEnvelope className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow"/>
+          </div>
+        </div>
 
         <ul className="list-none hidden sm:flex flex-col gap-5">
           {navLinks.map((nav) => (
@@ -109,6 +147,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </nav>
   );
 };

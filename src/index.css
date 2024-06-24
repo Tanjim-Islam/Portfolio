@@ -243,3 +243,24 @@
                 -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.golden-glow {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.glass-morphism:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
