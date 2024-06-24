@@ -29,9 +29,10 @@ const experiences = [
     company_name: "Invicta Solution Limited",
     date: "June 2024 - Present",
     details: [
-      "Built a subscriber base of over <span style='color: white;'>500,000 subscribers</span> by creating video content to help programmers.",
-      "Crafted visually appealling programming videos that have garnered over <span style='color: white;'>30,000,000 views</span>.",
-      "Produced high-quality educational and entertaining videos for clients including <span style='color: white;'>Intel, JetBrains, and MicroCenter</span>.",
+      "Developed responsive and visually appealing interfaces using HTML, CSS, JavaScript, React, and Vue.",
+      "Collaborated with designers and backend developers to enhance user experience.",
+      "Implemented web performance optimization techniques for faster load times.",
+      "Contributed to code reviews and the development of reusable components.",
     ],
   },
   // {
