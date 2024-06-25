@@ -264,3 +264,7 @@
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
+
+.sectionSubTextLarge {
+  font-size: 30px; /* Adjust the size as needed */
+}
