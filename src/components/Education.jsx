@@ -16,16 +16,22 @@ const educationData = [
     title: "SSC (2017)",
     institution: "Chetona Model Academy",
     location: "Mirpur, Dhaka",
+    subject: "Science",
+    link: "https://maps.app.goo.gl/KQyzN9RGkF5rKwwa7",
   },
   {
     title: "HSC (2019)",
     institution: "Bangladesh International School and College",
     location: "Mohakhali DOHS, Dhaka",
+    subject: "Science",
+    link: "https://maps.app.goo.gl/K7nGAU1NkMH7j5dh6",
   },
   {
-    title: "BRAC University (2020-2024)",
+    title: "University (2020-2024)",
     institution: "BRAC University",
     location: "Badda, Dhaka",
+    subject: "Computer Science and Engineering",
+    link: "https://maps.app.goo.gl/gMh6HGWGodL2bGLT8",
   },
 ];
 
@@ -40,15 +46,28 @@ const EducationCard = ({ education }) => {
       date={education.title}
       iconStyle={{ background: "#f9c74f", color: "#fff" }}
     >
-      <h3 className="text-white text-[24px] font-bold">
-        {education.institution}
-      </h3>
-      <p
-        className="text-secondary text-[16px] font-semibold"
-        style={{ margin: 0 }}
+      <a
+        href={education.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Location of ${education.institution}`}
       >
-        {education.location}
-      </p>
+        <h3 className="text-white text-[24px] font-bold">
+          {education.institution}
+        </h3>
+        <p
+          className="text-secondary text-[16px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {education.location}
+        </p>
+        <p
+          className="text-secondary text-[14px] font-semibold"
+          style={{ margin: 0 }}
+        >
+          {education.subject}
+        </p>
+      </a>
     </VerticalTimelineElement>
   );
 };
