@@ -31,6 +31,7 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   const [rotationY, setRotationY] = useState(0);
   const [scale, setScale] = useState([2, 2, 2]);
   const [position, setPosition] = useState([0.2, -0.7, 0]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // State to track mobile view
 
   // Debounce function
   const debounce = (func, wait) => {
@@ -55,7 +56,9 @@ const SpacemanCanvas = ({ scrollContainer }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      const isMobile = window.innerWidth < 768;
+      setIsMobile(isMobile); // Update isMobile state
+      if (isMobile) {
         setScale([1, 1, 1]);
         setPosition([0.2, -0.1, 0]);
       } else if (window.innerWidth < 1024) {
@@ -104,11 +107,14 @@ const SpacemanCanvas = ({ scrollContainer }) => {
           intensity={1}
         />
 
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI}
-          minPolarAngle={0}
-        />
+        {/* Render OrbitControls only if not on mobile */}
+        {!isMobile && (
+          <OrbitControls
+            enableZoom={false}
+            maxPolarAngle={Math.PI}
+            minPolarAngle={0}
+          />
+        )}
 
         <Spaceman
           rotationX={rotationX}
