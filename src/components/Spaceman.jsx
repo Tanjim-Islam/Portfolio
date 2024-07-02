@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import spacemanScene from "../assets/3d/spaceman.glb";
 import CanvasLoader from "./Loader";
 import { OrbitControls } from "@react-three/drei";
@@ -15,7 +15,12 @@ const Spaceman = ({ scale, position }) => {
   }, [actions]);
 
   return (
-    <mesh ref={spacemanRef} position={position} scale={scale} rotation={[0, 2.2, 0]}>
+    <mesh
+      ref={spacemanRef}
+      position={position}
+      scale={scale}
+      rotation={[0, 2.2, 0]}
+    >
       <primitive object={scene} />
     </mesh>
   );
@@ -27,15 +32,28 @@ const SpacemanCanvas = ({ scrollContainer }) => {
   const [scale, setScale] = useState([2, 2, 2]);
   const [position, setPosition] = useState([0.2, -0.7, 0]);
 
-  useEffect(() => {
-    const handleScroll = () => {
+  // Debounce function
+  const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  };
+
+  // Scroll handler with debounce
+  const handleScroll = useCallback(
+    debounce(() => {
       const scrollTop = scrollContainer.current.scrollTop;
       const rotationXValue = scrollTop * -0.0006;
       const rotationYValue = scrollTop * -0.00075;
       setRotationX(rotationXValue);
       setRotationY(rotationYValue);
-    };
+    }, 10), // Adjust the debounce wait time if necessary
+    []
+  );
 
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setScale([1, 1, 1]);
@@ -63,27 +81,44 @@ const SpacemanCanvas = ({ scrollContainer }) => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, [scrollContainer]);
+  }, [handleScroll, scrollContainer]);
 
   return (
-  <Canvas className={`w-full h-screen bg-transparent z-10`} camera={{ near: 0.1, far: 1000 }}>
-    <Suspense fallback={<CanvasLoader />}>
-      <directionalLight position={[1, 1, 1]} intensity={2} />
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 5, 10]} intensity={2} />
-      <spotLight position={[0, 50, 10]} angle={0.15} penumbra={1} intensity={2} />
-      <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
+    <Canvas
+      className={`w-full h-screen bg-transparent z-10`}
+      camera={{ near: 0.1, far: 1000 }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <directionalLight position={[1, 1, 1]} intensity={2} />
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 5, 10]} intensity={2} />
+        <spotLight
+          position={[0, 50, 10]}
+          angle={0.15}
+          penumbra={1}
+          intensity={2}
+        />
+        <hemisphereLight
+          skyColor="#b1e1ff"
+          groundColor="#000000"
+          intensity={1}
+        />
 
-      <OrbitControls
-        enableZoom={false}
-        maxPolarAngle={Math.PI}
-        minPolarAngle={0}
-      />
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI}
+          minPolarAngle={0}
+        />
 
-      <Spaceman rotationX={rotationX} rotationY={rotationY} scale={scale} position={position} />
-    </Suspense>
-  </Canvas>
-);
+        <Spaceman
+          rotationX={rotationX}
+          rotationY={rotationY}
+          scale={scale}
+          position={position}
+        />
+      </Suspense>
+    </Canvas>
+  );
 };
 
 export default SpacemanCanvas;

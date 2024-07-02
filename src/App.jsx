@@ -21,8 +21,6 @@ const App = () => {
             <Hero scrollContainer={wrapperRef} />
           </div>
           <div id="education" className="relative z-30 bg-primary mt-[-2px]">
-            {" "}
-            {/* Added Education section */}
             <Education />
           </div>
           <div id="portfolio" className="relative z-30 bg-primary mt-[-2px]">

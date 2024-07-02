@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { close, menu } from "../assets";
 import { navLinks } from "../data";
 import { FaFacebook, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
-import toast, { Toaster } from "react-hot-toast"; // Importing toast and Toaster from react-hot-toast
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false); // Comment: State for mobile menu toggle
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -63,16 +63,7 @@ const Navbar = () => {
   return (
     <nav className="w-full flex items-center bg-gradient-to-b from-black sm:bg-none p-8 sm:px-16 sm:py-10 fixed z-40 pointer-events-none">
       <div className="w-full flex justify-between items-start mx-auto">
-
         <div className="flex items-center space-x-4">
-          <a
-            href="https://www.facebook.com/tanjim.islam1"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebook className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
-          </a>
           <a
             href="https://www.linkedin.com/in/tanjim-riju-7b0683234/"
             target="_blank"
@@ -90,11 +81,17 @@ const Navbar = () => {
             <FaGithub className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
           </a>
 
-          <div
-            onClick={copyEmailToClipboard}
-            aria-label="Email"
+          <a
+            href="https://www.facebook.com/tanjim.islam1"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
           >
-            <FaEnvelope className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow"/>
+            <FaFacebook className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
+          </a>
+
+          <div onClick={copyEmailToClipboard} aria-label="Email">
+            <FaEnvelope className="text-white text-[36px] sm:text-[26px] lg:text-[36px] pointer-events-auto cursor-pointer glass-morphism hover:golden-glow" />
           </div>
         </div>
 
@@ -115,6 +112,8 @@ const Navbar = () => {
           ))}
         </ul>
 
+        {/* mobile menu toggle and dropdown */}
+        {/* 
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
@@ -146,6 +145,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        */}
       </div>
       <Toaster position="top-center" reverseOrder={false} />
     </nav>

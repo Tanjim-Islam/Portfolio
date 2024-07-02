@@ -50,6 +50,7 @@
 
 .parallax > * {
   grid-area: stack;
+  will-change: transform;
   animation: parallax linear;
   animation-timeline: scroll();
 }
@@ -88,6 +89,8 @@
 }
 
 .parallax__content {
+  will-change: transform;
+  transition: transform 0.3s ease-in-out;
   --parallax-speed: 210;
   z-index: 5;
   display: flex;
@@ -267,4 +270,10 @@
 
 .sectionSubTextLarge {
   font-size: 30px; /* Adjust the size as needed */
+}
+
+/* Added scale effect for education cards */
+.vertical-timeline-element:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
