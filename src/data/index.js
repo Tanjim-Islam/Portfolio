@@ -41,6 +41,16 @@ const experiences = [
     ],
   },
   {
+    title: "Contract Machine Learning Engineer",
+    company_name: "Upwork",
+    date: "June 2023 - December 2023",
+    details: [
+      "Developed machine learning models using <span style='color: white;'> Python, Scikit-Learn, and TensorFlow. </span>",
+      "Designed data pipelines for efficient data processing and model training.",
+      "Collaborated with clients on Upwork to deploy ML models and provided documentation for maintenance.",
+    ],
+  },
+  {
     title: "Freelance Data Analyst",
     company_name: "Upwork",
     date: "May 2022 - May 2023",
@@ -61,13 +71,13 @@ const experiences = [
     ],
   },
   {
-    title: "Contract Machine Learning Engineer",
+    title: "Freelance Web Scraper Developer",
     company_name: "Upwork",
-    date: "June 2023 - December 2023",
+    date: "April 2021 - September 2021",
     details: [
-      "Developed machine learning models using <span style='color: white;'> Python, Scikit-Learn, and TensorFlow. </span>",
-      "Designed data pipelines for efficient data processing and model training.",
-      "Collaborated with clients on Upwork to deploy ML models and provided documentation for maintenance.",
+      "Created web scraping solutions using <span style='color: white;'> Python and Selenium. </span>",
+      "Automated data collection for clients to gather insights on competitors and market trends.",
+      "Ensured data accuracy and compliance with web scraping best practices.",
     ],
   },
   {
@@ -78,16 +88,6 @@ const experiences = [
       "Designed user interfaces and experiences using <span style='color: white;'> Figma and Adobe XD. </span>",
       "Developed interactive prototypes and translated designs into functional front-end code with <span style='color: white;'> HTML, CSS, and JavaScript. </span>",
       "Conducted user testing to improve usability and ensure a seamless user experience.",
-    ],
-  },
-  {
-    title: "Freelance Web Scraper Developer",
-    company_name: "Upwork",
-    date: "April 2021 - September 2021",
-    details: [
-      "Created web scraping solutions using <span style='color: white;'> Python and Selenium. </span>",
-      "Automated data collection for clients to gather insights on competitors and market trends.",
-      "Ensured data accuracy and compliance with web scraping best practices.",
     ],
   },
 ];
