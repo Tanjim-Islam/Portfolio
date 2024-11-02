@@ -7,7 +7,7 @@ import {
   Navbar,
   Portfolio,
   Education,
-} from "./components"; // Importing Education component
+} from "./components"; 
 
 const App = () => {
   const wrapperRef = useRef(null);
