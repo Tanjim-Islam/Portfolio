@@ -21,7 +21,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("div[id]");
+    const sections = document.querySelectorAll("[id]");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

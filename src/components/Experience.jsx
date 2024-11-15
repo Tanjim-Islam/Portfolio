@@ -9,7 +9,7 @@ import { textVariant } from "../utils/motion";
 const ExperienceCard = ({ experience, onClick, isActive, isMobile }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }} // subtle hover animation
+      whileHover={{ scale: 1.05 }}
       onClick={onClick}
       className={`cursor-pointer sm:mb-5 p-5 max-w-xl relative sm:text-left text-center ${
         isMobile ? "text-quaternary" : ""
@@ -83,7 +83,7 @@ const Experience = () => {
       </motion.div>
 
       <div className="relative mt-10 md:mt-20 md:p-20 flex flex-col items-center sm:flex-row sm:items-start">
-        <div className="flex flex-col z-10 sm:w-auto sm:w-full">
+        <div className="flex flex-col z-10 sm:w-full">
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}
@@ -95,7 +95,7 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="flex justify-end z-10 sm:block hidden">
+        <div className="justify-end z-10 sm:block hidden">
           <ExperienceDetails experience={selectedJob} />
         </div>
       </div>
@@ -103,4 +103,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, "portfolio");
+export default SectionWrapper(Experience, "experience");
