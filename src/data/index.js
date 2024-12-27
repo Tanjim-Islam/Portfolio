@@ -97,20 +97,23 @@ const portfolio = [
   {
     name: "Hand Sign Recognition with YOLOv8",
     description:
-      "A GitHub repo with over 17,000 stars containing a curated list of free online courses from reputable universities that satisfy undergraduate computer science requirements.",
+      "This repository showcases a computer vision project that detects and classifies hand signs in real time using the YOLOv8 object detection framework. It includes training scripts, a labeled dataset, and an inference pipeline that demonstrates how to process live or recorded video streams to identify different hand gestures.",
     image: yolov8,
+    link: "https://github.com/Tanjim-Islam/Hand-Sign-Recognition-with-YOLOv8",
   },
   {
     name: "Fake News Detection",
     description:
-      "A newsletter with over 6,000 readers made for software developers to keep up with this rapidly evolving industry, with a sister platform in progress.",
+      "Developed a high-accuracy fake news detection system using the FaKnow library, achieving near-perfect metrics across datasets with advanced content and social context-based algorithms.",
     image: fakenews,
+    link: "https://github.com/Tanjim-Islam/Fake-News-Detection",
   },
   {
     name: "HomieStay",
     description:
       "HomieStay is a modern, clean, and user-friendly platform for hosting and connecting with people in need of temporary housing.",
     image: homiestay,
+    link: "https://homie-stay.vercel.app/",
   },
 ];
 
