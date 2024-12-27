@@ -17,21 +17,21 @@ const educationData = [
     institution: "Chetona Model Academy",
     location: "Mirpur, Dhaka",
     subject: "Science",
-    link: "https://maps.app.goo.gl/KQyzN9RGkF5rKwwa7",
+    link: "https://cma.edu.bd/",
   },
   {
     title: "HSC (2019)",
     institution: "Bangladesh International School and College",
     location: "Mohakhali DOHS, Dhaka",
     subject: "Science",
-    link: "https://maps.app.goo.gl/K7nGAU1NkMH7j5dh6",
+    link: "https://bisc.com.bd/",
   },
   {
     title: "University (2020-2024)",
     institution: "BRAC University",
     location: "Badda, Dhaka",
     subject: "Computer Science and Engineering",
-    link: "https://maps.app.goo.gl/gMh6HGWGodL2bGLT8",
+    link: "https://www.bracu.ac.bd/",
   },
 ];
 
