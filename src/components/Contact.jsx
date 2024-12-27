@@ -68,14 +68,14 @@ const Contact = () => {
           action="https://getform.io/f/jawxpozb"
           method="POST"
           onSubmit={handleSubmit}
-          className="mt-12 gap-4 flex flex-col"
+          className="mt-1 gap-4 flex flex-col"
         >
           <span className="text-white font-medium mt-3">Full Name</span>
           <input
             type="text"
             name="name"
             placeholder="Enter your full name"
-            className="bg-tertiary p-4 text-white border font-medium rounded-xl" // Changed to "rounded-xl"
+            className="bg-tertiary p-4 text-white border font-medium rounded-xl"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
@@ -85,7 +85,7 @@ const Contact = () => {
             type="text"
             name="email"
             placeholder="Enter your email address"
-            className="bg-tertiary p-4 text-white border font-medium rounded-xl" // Changed to "rounded-xl"
+            className="bg-tertiary p-4 text-white border font-medium rounded-xl"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
@@ -95,7 +95,7 @@ const Contact = () => {
             name="message"
             placeholder="Enter your message"
             rows="10"
-            className="bg-tertiary p-4 text-white border font-medium rounded-xl" // Changed to "rounded-xl"
+            className="bg-tertiary p-4 text-white border font-medium rounded-xl"
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
           />
@@ -104,7 +104,7 @@ const Contact = () => {
           )}
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 w-fit text-white font-bold shadow-md shadow-primary border border-white rounded-xl" // Added "border border-white rounded-xl"
+            className="bg-tertiary py-3 px-8 md:px-96 w-fit text-white font-bold shadow-md shadow-primary border border-white rounded-xl transition transform hover:scale-105 hover:shadow-lg"
           >
             {loading ? "Sending..." : "Send"}
           </button>
